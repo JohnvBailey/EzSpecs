@@ -10,4 +10,4 @@ This app is purely created for fps gamers, there won't be any use beyond that. I
 * Players Unknown Battle Grounds
 * Apex
 * Overwatch
-* (Open Suggestions)
+* (Open Suggestions
