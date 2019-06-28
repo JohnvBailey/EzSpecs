@@ -7,10 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
+/*
 public class TargetGameActivity extends AppCompatActivity {
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
+ // protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_target_game);
     Toolbar toolbar = findViewById(R.id.toolbar);
@@ -27,3 +28,4 @@ public class TargetGameActivity extends AppCompatActivity {
   }
 
 }
+*/

@@ -19,63 +19,76 @@ tools:context=".MainActivity">
   app:layout_constraintStart_toStartOf="parent"
   app:layout_constraintTop_toTopOf="parent"/>
 
-  <Button
-    android:id="@+id/fortnitebutton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="150dp"
+
+  <Spinner
+    android:id="@+id/spinner"
+    android:layout_width="395dp"
+    android:layout_height="27dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
     android:layout_marginEnd="8dp"
-    android:text="Fortnite"
+    app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+    app:layout_constraintTop_toBottomOf="@+id/textView"
+    app:layout_constraintVertical_bias="0.156"/>
 
-  <Button
-    android:id="@+id/apexbutton"
-    android:layout_width="88dp"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="150dp"
-    android:layout_marginEnd="8dp"
-    android:text="Apex"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/fortnitebutton"/>
+  <!-- <Button
+     android:id="@+id/fortnitebutton"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="150dp"
+     android:layout_marginEnd="8dp"
+     android:text="Fortnite"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintTop_toTopOf="parent"/>
 
-  <Button
-    android:id="@+id/pubgbutton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="150dp"
-    android:layout_marginEnd="8dp"
-    android:text="PubG"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/apexbutton"/>
+   <Button
+     android:id="@+id/apexbutton"
+     android:layout_width="88dp"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="150dp"
+     android:layout_marginEnd="8dp"
+     android:text="Apex"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/fortnitebutton"/>
 
-  <Button
-    android:id="@+id/csgobutton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="150dp"
-    android:layout_marginStart="8dp"
-    android:text="CsGo"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+   <Button
+     android:id="@+id/pubgbutton"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="150dp"
+     android:layout_marginEnd="8dp"
+     android:text="PubG"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/apexbutton"/>
 
-  <Button
-    android:id="@+id/overwatchbutton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="150dp"
-    android:layout_marginStart="8dp"
-    android:text="OverWatch"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/csgobutton"/>
+   <Button
+     android:id="@+id/csgobutton"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="150dp"
+     android:layout_marginStart="8dp"
+     android:text="CsGo"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent"/>
 
-  <Button
-    android:id="@+id/paladinsbutton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="150dp"
-    android:layout_marginStart="8dp"
-    android:text="Paladins"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/overwatchbutton"/>
+   <Button
+     android:id="@+id/overwatchbutton"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="150dp"
+     android:layout_marginStart="8dp"
+     android:text="OverWatch"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/csgobutton"/>
+
+   <Button
+     android:id="@+id/paladinsbutton"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="150dp"
+     android:layout_marginStart="8dp"
+     android:text="Paladins"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/overwatchbutton"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,15 @@
 package edu.cnm.deepdive.ezspecs.model.entity;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
 public class Game {
 
-  @PrimaryKey
+  @PrimaryKey (autoGenerate = true)
+  @ColumnInfo(name = "game_id")
   private long id;
   private String title;
 
@@ -24,6 +27,12 @@ public class Game {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+  @NonNull
+  @Override
+  public String toString() {
+    return title;
   }
 }
 

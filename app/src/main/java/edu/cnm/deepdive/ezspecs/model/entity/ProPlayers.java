@@ -6,12 +6,12 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 @Entity(foreignKeys = {
-    @ForeignKey(entity = Game.class,parentColumns = "id", childColumns = "game_id")
+    @ForeignKey(entity = Game.class,parentColumns = "game_id", childColumns = "progame_id")
 })
 public class ProPlayers {
  @PrimaryKey
   private Long id;
- @ColumnInfo(name = "game_id", index = true)
+ @ColumnInfo(name = "progame_id", index = true)
  private Long gameid;
   private String Proname;
   private String Settings;
@@ -21,7 +21,7 @@ public class ProPlayers {
   }
 
   public void setId(Long id) {
-    id = id;
+    this.id = id;
   }
 
   public Long getGameId() {

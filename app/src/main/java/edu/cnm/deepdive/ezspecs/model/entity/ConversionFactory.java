@@ -11,8 +11,8 @@ import androidx.room.PrimaryKey;
         @Index(value = {"game_1_id", "game_2_id", "conversion"}, unique = true)
     },
     foreignKeys = {
-        @ForeignKey(entity = Game.class, parentColumns = "id", childColumns = "game_1_id"),
-        @ForeignKey(entity = Game.class, parentColumns = "id", childColumns = "game_2_id")
+        @ForeignKey(entity = Game.class, parentColumns = "game_id", childColumns = "game_1_id"),
+        @ForeignKey(entity = Game.class, parentColumns = "game_id", childColumns = "game_2_id")
 
     })
 
