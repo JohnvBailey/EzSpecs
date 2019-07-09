@@ -19,36 +19,33 @@ import edu.cnm.deepdive.ezspecs.viewmodel.GameViewModel;
 public class MainActivity extends AppCompatActivity {
 
   private Button fortnite;
-  private ArrayAdapter<Game> adapter;
-  private Spinner spinner;
-  private Context context;
-  public static MainActivity newInstance(){
-    return new MainActivity();
-  }
+//  private ArrayAdapter<Game> adapter;
+//  private Spinner spinner;
+//  private Context context;
+//  public static MainActivity newInstance(){
+//    return new MainActivity();
+//  }
+//
 
- /* @Override
-  public void onAttach(Context context) {
-    super.onAttach(context);
-    this.context = context;*/
-
-
-
-  @Override
+//
+//
+//
+ @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     final GameViewModel viewModel = ViewModelProviders.of(this).get(GameViewModel.class);
-   /* fortnite = (Button) findViewById(R.id.fortnitebutton);
-    fortnite.setText("Badass fortnite");*/
-    final Spinner spinner = findViewById(R.id.spinner);
+    fortnite = (Button) findViewById(R.id.fortnitebutton);
+    fortnite.setText("Fortnite");
+  /*  final Spinner spinner = findViewById(R.id.spinner);
     viewModel.getGames().observe(this, (games) -> {
       adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, games);
       spinner.setAdapter(adapter);
-    });
-
-    // fortnite.setOnClickListener(new OnClickListener() {
-
-  }
+    });*/
+//
+//    // fortnite.setOnClickListener(new OnClickListener() {
+//
+//  }
      /* @Override
       public void onClick(View v) {
         openTargetGameActivity();

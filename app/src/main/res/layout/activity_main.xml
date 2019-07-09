@@ -32,7 +32,7 @@ tools:context=".MainActivity">
     app:layout_constraintTop_toBottomOf="@+id/textView"
     app:layout_constraintVertical_bias="0.156"/>
 
-  <!-- <Button
+  <Button
      android:id="@+id/fortnitebutton"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
