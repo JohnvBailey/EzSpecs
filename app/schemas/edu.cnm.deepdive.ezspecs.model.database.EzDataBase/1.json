@@ -1,0 +1,219 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "8459b6adcc6f7559d8b0151b8c87cddb",
+    "entities": [
+      {
+        "tableName": "Game",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`game_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "game_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "game_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Preferences",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`Id` INTEGER NOT NULL, `MouseDpi` TEXT, `Resolution` TEXT, PRIMARY KEY(`Id`))",
+        "fields": [
+          {
+            "fieldPath": "Id",
+            "columnName": "Id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "MouseDpi",
+            "columnName": "MouseDpi",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Resolution",
+            "columnName": "Resolution",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "Id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ProPlayers",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER, `progame_id` INTEGER, `Proname` TEXT, `Settings` TEXT, PRIMARY KEY(`id`), FOREIGN KEY(`progame_id`) REFERENCES `Game`(`game_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "gameid",
+            "columnName": "progame_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Proname",
+            "columnName": "Proname",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Settings",
+            "columnName": "Settings",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_ProPlayers_progame_id",
+            "unique": false,
+            "columnNames": [
+              "progame_id"
+            ],
+            "createSql": "CREATE  INDEX `index_ProPlayers_progame_id` ON `${TABLE_NAME}` (`progame_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Game",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "progame_id"
+            ],
+            "referencedColumns": [
+              "game_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "ConversionFactory",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `game_1_id` INTEGER NOT NULL, `game_2_id` INTEGER NOT NULL, `conversion` TEXT, PRIMARY KEY(`id`), FOREIGN KEY(`game_1_id`) REFERENCES `Game`(`game_id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`game_2_id`) REFERENCES `Game`(`game_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "game1Id",
+            "columnName": "game_1_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "game2Id",
+            "columnName": "game_2_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "conversion",
+            "columnName": "conversion",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_ConversionFactory_game_1_id_game_2_id_conversion",
+            "unique": true,
+            "columnNames": [
+              "game_1_id",
+              "game_2_id",
+              "conversion"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_ConversionFactory_game_1_id_game_2_id_conversion` ON `${TABLE_NAME}` (`game_1_id`, `game_2_id`, `conversion`)"
+          },
+          {
+            "name": "index_ConversionFactory_game_1_id",
+            "unique": false,
+            "columnNames": [
+              "game_1_id"
+            ],
+            "createSql": "CREATE  INDEX `index_ConversionFactory_game_1_id` ON `${TABLE_NAME}` (`game_1_id`)"
+          },
+          {
+            "name": "index_ConversionFactory_game_2_id",
+            "unique": false,
+            "columnNames": [
+              "game_2_id"
+            ],
+            "createSql": "CREATE  INDEX `index_ConversionFactory_game_2_id` ON `${TABLE_NAME}` (`game_2_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Game",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "game_1_id"
+            ],
+            "referencedColumns": [
+              "game_id"
+            ]
+          },
+          {
+            "table": "Game",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "game_2_id"
+            ],
+            "referencedColumns": [
+              "game_id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8459b6adcc6f7559d8b0151b8c87cddb')"
+    ]
+  }
+}

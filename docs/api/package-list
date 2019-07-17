@@ -1,0 +1,6 @@
+edu.cnm.deepdive.ezspecs
+edu.cnm.deepdive.ezspecs.dummy
+edu.cnm.deepdive.ezspecs.model.dao
+edu.cnm.deepdive.ezspecs.model.database
+edu.cnm.deepdive.ezspecs.model.entity
+edu.cnm.deepdive.ezspecs.viewmodel
