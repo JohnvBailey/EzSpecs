@@ -5,6 +5,7 @@
 * [ERD](docs/ERD.md)
 * [ERD.pdf](docs/ERD.pdf)
 * [Milestone-2](docs/milestone-2.md)
+* [Data Model](docs/data-model.md)
 
 This app is purely created for fps gamers, there won't be any use beyond that. It will include only the big titles for now, with a significant player base. So for now it will only be
 
