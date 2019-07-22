@@ -1,72 +1,64 @@
 package edu.cnm.deepdive.ezspecs;
 
-import android.content.Context;
 import android.content.Intent;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.Adapter;
-import edu.cnm.deepdive.ezspecs.model.database.EzDataBase;
+import edu.cnm.deepdive.ezspecs.RecyclerViewAdapter.OnGameListener;
 import edu.cnm.deepdive.ezspecs.model.entity.Game;
 import edu.cnm.deepdive.ezspecs.viewmodel.GameViewModel;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnGameListener {
+
+  private GameViewModel viewModel;
   private RecyclerView mRecyclerView;
   private RecyclerView.Adapter mAdapter;
   private RecyclerView.LayoutManager mLayoutManager;
+  private Game from;
 
 
-
- @Override
+  @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-   ArrayList<RecyclerButtons> recylcerButtonList = new ArrayList<>();
-   recylcerButtonList.add(new RecyclerButtons(R.drawable.ic_android, "Fortnite"));
-   mRecyclerView = findViewById(R.id.recycler_view);
-   mRecyclerView.setHasFixedSize(true);
-   mLayoutManager = new LinearLayoutManager(this);
-   mAdapter = new RecyclerViewAdapter(recylcerButtonList);
-   mRecyclerView.setLayoutManager(mLayoutManager);
-   mRecyclerView.setAdapter(mAdapter);
-
-/*
-    final GameViewModel viewModel = ViewModelProviders.of(this).get(GameViewModel.class);
-    fortnite = (Button) findViewById(R.id.fortnitebutton);
-    fortnite.setText("Fortnite");*/
-  /*  final Spinner spinner = findViewById(R.id.spinner);
+    viewModel = ViewModelProviders.of(this).get(GameViewModel.class);
+    mRecyclerView = findViewById(R.id.recycler_view);
+    mLayoutManager = new LinearLayoutManager(this);
+    mRecyclerView.setLayoutManager(mLayoutManager);
     viewModel.getGames().observe(this, (games) -> {
-      adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, games);
-      spinner.setAdapter(adapter);
-    });*/
-//
-//    // fortnite.setOnClickListener(new OnClickListener() {
-//
-//  }
-     /* @Override
-      public void onClick(View v) {
-        openTargetGameActivity();
-      }
+
+      mAdapter = new RecyclerViewAdapter(this, games, this);
+      mRecyclerView.setAdapter(mAdapter);
     });
+
   }
-  *//*private void openTargetGameActivity(){
-    Intent intent = new Intent(this, TargetGameActivity.class);
-    startActivity(intent);
-  }*/
-//  }
-//
-//  @Override
-//  public View onCreateView(String name, Context context, AttributeSet attrs) {
-//    return super.onCreateView(name, context, attrs);
-//  }
-}}
+
+  @Override
+  public void onGameClicked(Game game, int position) {
+
+    if (game == from) {
+      from = null;
+      game.setSelected(false);
+      mAdapter.notifyItemChanged(position);
+
+    } else if (from == null) {
+      from = game;
+      game.setSelected(true);
+      mAdapter.notifyItemChanged(position);
+
+    } else {
+      Game to =  game;
+      Game from = this.from;
+      from.setSelected(false);
+      mAdapter.notifyDataSetChanged();
+      Intent intent = new Intent(this, ResultsActivity.class);
+      intent.putExtra(ResultsActivity.FROM_GAME_ID,from.getId());
+      intent.putExtra(ResultsActivity.TO_GAME_ID,to.getId());
+      startActivity(intent);
+    }
+
+  }
+
+}

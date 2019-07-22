@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".PrimordialFragment">
+
+  <!-- TODO: Update blank fragment layout -->
+  <TextView
+    android:id="@+id/presettxt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="Presets"
+    android:textSize="30sp"
+    android:textColor="@color/colorPrimaryDark"
+    android:layout_marginLeft="150sp"
+    android:layout_marginTop="10sp"/>
+
+  <TextView
+    android:id="@+id/txtmssg"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="110sp"
+    android:paddingLeft="40sp"
+    android:text="  First time user eh? I am going to need some additional information to complete the conversion."/>
+
+  <TextView
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/presolutiontxt"
+    android:text="Enter your screen resolution below"
+    android:layout_marginTop="200dp"
+    android:layout_marginLeft="75sp"
+    android:textSize="18sp"
+    android:textColor="@color/colorPrimary"/>
+
+  <EditText
+    android:id="@+id/resolutioninput"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="230sp"
+    android:layout_marginLeft="150sp"
+    android:hint="Resolution"/>
+
+  <TextView
+    android:id="@+id/dpitxt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Now enter you mouse Dpi"
+    android:layout_marginTop="350dp"
+    android:layout_marginLeft="75sp"
+    android:textSize="18sp"
+    android:textColor="@color/colorPrimary"/>
+
+  <EditText
+    android:id="@+id/dpiinput"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="DPI"
+    android:layout_marginTop="390sp"
+    android:layout_marginLeft="150sp"/>
+
+
+
+
+</FrameLayout>

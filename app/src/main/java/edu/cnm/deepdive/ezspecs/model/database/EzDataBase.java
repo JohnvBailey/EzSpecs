@@ -3,26 +3,18 @@ package edu.cnm.deepdive.ezspecs.model.database;
 import android.content.Context;
 import android.os.AsyncTask;
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
-    import androidx.room.Database;
+import androidx.room.Database;
     import androidx.room.Room;
     import androidx.room.RoomDatabase;
-    import androidx.room.RoomMasterTable;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-import edu.cnm.deepdive.ezspecs.model.dao.ConversionFactoryDao;
 import edu.cnm.deepdive.ezspecs.model.dao.GameDao;
-import edu.cnm.deepdive.ezspecs.model.dao.ProPlayersDao;
-import edu.cnm.deepdive.ezspecs.model.entity.ConversionFactory;
-    import edu.cnm.deepdive.ezspecs.model.entity.Game;
-    import edu.cnm.deepdive.ezspecs.model.entity.Preferences;
-    import edu.cnm.deepdive.ezspecs.model.entity.ProPlayers;
+import edu.cnm.deepdive.ezspecs.model.entity.Game;
 
-@Database (entities = {Game.class, Preferences.class, ProPlayers.class, ConversionFactory.class},version = 1,exportSchema = true)
+@Database (entities = {Game.class},version = 1,exportSchema = true)
 public abstract class EzDataBase extends RoomDatabase {
 
   public abstract GameDao gamedao();
-  public abstract ConversionFactoryDao conversionFactoryDao();
-  public abstract ProPlayersDao proPlayersDao();
+
 
 
 
@@ -59,26 +51,38 @@ private static class PopulateDbTask extends AsyncTask<Void, Void, Void> {
   protected Void doInBackground(Void... voids) {
    Game fortnite = new Game();
     fortnite.setTitle("Fortnite");
+    fortnite.setImage("fortnite");
+    fortnite.setIncrementalValue(4);
     db.gamedao().insert(fortnite);
 
     Game apex = new Game();
-    apex.setTitle("apex");
+    apex.setTitle("Apex Legends");
+    apex.setImage("apex");
+    apex.setIncrementalValue(3);
     db.gamedao().insert(apex);
 
     Game overwatch = new Game();
-    overwatch.setTitle("OverWatch");
+    overwatch.setTitle("Overwatch");
+    overwatch.setImage("overwatch");
+    overwatch.setIncrementalValue(2);
     db.gamedao().insert(overwatch);
 
     Game csgo = new Game();
-    csgo.setTitle("CsGo");
+    csgo.setTitle("CounterStrike: Global Offensive");
+    csgo.setImage("counterstrike");
+    csgo.setIncrementalValue(1);
     db.gamedao().insert(csgo);
 
     Game pubg = new Game();
-    pubg.setTitle("pubg");
+    pubg.setTitle("PlayerUnknown's Battlegrounds");
+    pubg.setImage("pubg");
+    pubg.setIncrementalValue(0.1423);
     db.gamedao().insert(pubg);
 
     Game paladins = new Game();
     paladins.setTitle("Paladins");
+    paladins.setImage("paladins");
+    paladins.setIncrementalValue(.5);
     db.gamedao().insert(paladins);
     return null;
   }

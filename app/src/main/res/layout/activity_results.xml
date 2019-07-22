@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".ResultsActivity">
+
+  <TextView
+    android:id="@+id/textview10"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+   android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
+    android:textSize="20sp"
+    android:textColor="@color/colorPrimaryDark"
+    android:text="Now enter the sensitivity for the first game"
+    app:layout_constraintBottom_toTopOf="@id/sensitivityinput"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+  <TextView
+    android:id="@+id/computedsensitivity"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/sensitivityinput"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/button10"
+    app:layout_constraintWidth_percent="0.5"/>
+
+
+
+  <EditText
+    android:id="@+id/sensitivityinput"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="sensitivity"
+    app:layout_constraintBottom_toTopOf="@id/computedsensitivity"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textview10"
+    android:inputType="numberDecimal"/>
+
+  <Button
+    android:id="@+id/button10"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Submit"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/computedsensitivity"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,10 +8,21 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Game {
 
-  @PrimaryKey (autoGenerate = true)
+  @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "game_id")
   private long id;
   private String title;
+  private String image;
+  private double incrementalValue;
+  private transient boolean selected;
+
+  public double getIncrementalValue() {
+    return incrementalValue;
+  }
+
+  public void setIncrementalValue(double incrementalValue) {
+    this.incrementalValue = incrementalValue;
+  }
 
   public long getId() {
     return id;
@@ -28,6 +39,22 @@ public class Game {
   public void setTitle(String title) {
     this.title = title;
   }
+
+  public String getImage() {
+    return image;
+  }
+
+  public void setImage(String image) {
+    this.image = image;
+  }
+  public boolean isSelected() {
+    return selected;
+  }
+
+  public void setSelected(boolean selected) {
+    this.selected = selected;
+  }
+
 
   @NonNull
   @Override

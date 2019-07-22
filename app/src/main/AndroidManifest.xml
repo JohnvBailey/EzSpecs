@@ -6,19 +6,24 @@
     android:allowBackup="true"
     android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
+    android:name=".EzApp"
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
-    android:name=".EzApp"
     android:theme="@style/AppTheme">
-<!--    <activity-->
-<!--      android:label="@string/title_activity_target_game"-->
-<!--      android:name=".TargetGameActivity"-->
-<!--      android:theme="@style/AppTheme.NoActionBar">-->
-<!--    </activity>-->
+
+    <activity android:name=".Primordial">
+
+
+    </activity>
+
+
+    <activity android:name=".ResultsActivity"
+      android:parentActivityName=".MainActivity">
+    </activity>
     <activity
       android:label="MainActivity"
       android:name=".MainActivity">
-      <intent-filter>
+    <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
         <category android:name="android.intent.category.LAUNCHER"/>

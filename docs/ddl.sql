@@ -2,14 +2,14 @@ CREATE TABLE IF NOT EXISTS `Game`
 (
     `game_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     `title`   TEXT
-)
+);
 CREATE TABLE IF NOT EXISTS `Preferences`
 (
     `Id`         INTEGER NOT NULL,
     `MouseDpi`   TEXT,
     `Resolution` TEXT,
     PRIMARY KEY (`Id`)
-)
+);
 CREATE TABLE IF NOT EXISTS `ProPlayers`
 (
     `id`         INTEGER,
@@ -17,8 +17,8 @@ CREATE TABLE IF NOT EXISTS `ProPlayers`
     `Proname`    TEXT,
     `Settings`   TEXT,
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`progame_id`) REFERENCES `Game` (`game_id`) ON UPDATE NO ACTION ON DELETE NO ACTION
-)
+    FOREIGN KEY (`progame_id`) REFERENCES `Game` (`game_id`) ON UPDATE NO ACTION ON DELETE NO ACTION)
+;
 CREATE TABLE IF NOT EXISTS `ConversionFactory`
 (
     `id`         INTEGER NOT NULL,

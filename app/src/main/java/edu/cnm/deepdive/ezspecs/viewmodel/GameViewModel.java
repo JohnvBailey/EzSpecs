@@ -23,18 +23,8 @@ public class GameViewModel extends AndroidViewModel {
     return games;
   }
 
- /* public void addAlarm(final Game game) {
-    new Thread(new Runnable() {
-      @Override
-      public void run() {
-        EzDataBase = EzDataBase.getInstance(getApplication());
-        ().insert(game);
-      }
-    }).start();
+  public LiveData<Game> findGameById(long id) {
+   return EzDataBase.getInstance(getApplication()).gamedao().findById(id);
   }
-  public LiveData<Alarm> getAlarm(Long id) {
-    AlarmDatabase db = AlarmDatabase.getInstance((getApplication()));
-    return db.alarmDao().findById(id);
-  }
-*/
+
 }
