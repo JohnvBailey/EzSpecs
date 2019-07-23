@@ -1,3 +1,19 @@
+/*
+   Copyright 2019 John Bailey
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+ */
 package edu.cnm.deepdive.ezspecs;
 
 import android.content.Intent;
@@ -10,6 +26,9 @@ import edu.cnm.deepdive.ezspecs.RecyclerViewAdapter.OnGameListener;
 import edu.cnm.deepdive.ezspecs.model.entity.Game;
 import edu.cnm.deepdive.ezspecs.viewmodel.GameViewModel;
 
+/**
+ * The Main Activity of the App, creates GameViewmodel that populates a recycler view with a list of games.
+ */
 public class MainActivity extends AppCompatActivity implements OnGameListener {
 
   private GameViewModel viewModel;
@@ -35,6 +54,11 @@ public class MainActivity extends AppCompatActivity implements OnGameListener {
 
   }
 
+  /**
+   * Method that checks if an adapter object has been clicked. When two adapter objects have been clicked, user gets sent to results activity.
+   * @param game
+   * @param position
+   */
   @Override
   public void onGameClicked(Game game, int position) {
 

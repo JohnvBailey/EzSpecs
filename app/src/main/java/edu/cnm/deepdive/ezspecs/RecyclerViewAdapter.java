@@ -1,3 +1,19 @@
+/*
+   Copyright 2019 John Bailey
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+ */
 package edu.cnm.deepdive.ezspecs;
 
 import android.content.Context;
@@ -14,12 +30,21 @@ import edu.cnm.deepdive.ezspecs.RecyclerViewAdapter.OnGameListener;
 import edu.cnm.deepdive.ezspecs.model.entity.Game;
 import java.util.List;
 
+/**
+ * Class that creates a Recyclerview Adapter from an array of games.
+ */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<GameViewHolder> {
 
   private final Context context;
   private List<Game> games;
   private OnGameListener mOnGameListener;
 
+  /**
+   * attaches onGameListner to RecyclerView Adapter
+   * @param context
+   * @param games
+   * @param onGameListener
+   */
 
   public RecyclerViewAdapter(Context context, List<Game> games,
       OnGameListener onGameListener) {
@@ -29,6 +54,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<GameViewHolder> {
 
   }
 
+  /**
+   * Creates a view holder that inflates Card_View XMlL
+   * @param parent
+   * @param viewType
+   * @return
+   */
   @NonNull
   @Override
   public GameViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -38,17 +69,29 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<GameViewHolder> {
 
   }
 
+  /**
+   * binds a game object to a holder position
+   * @param holder
+   * @param position
+   */
   @Override
   public void onBindViewHolder(@NonNull GameViewHolder holder, int position) {
     Game game = games.get(position);
     holder.bind(game);
   }
 
+  /**
+   * creates the size of the ViewHolder
+   * @return
+   */
   @Override
   public int getItemCount() {
     return games.size();
   }
 
+  /**
+   * Creates the Created the recycler view with the objects from
+   */
   class GameViewHolder extends RecyclerView.ViewHolder implements
       View.OnClickListener {
 
